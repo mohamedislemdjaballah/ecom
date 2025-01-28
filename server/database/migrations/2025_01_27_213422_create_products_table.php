@@ -23,7 +23,6 @@ return new class extends Migration
             $table->jsonb('images')->nullable();
             $table->jsonb('videos')->nullable();
             $table->jsonb('translations')->nullable();
-            $table->integer('stock');
             $table->timestamps();
         });
     }
