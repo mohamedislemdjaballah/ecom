@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->integer('quantity')->default(0);
-            $table->varchar('location', 255);
+            $table->string('location', 255);
             $table->timestamps();
             
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
