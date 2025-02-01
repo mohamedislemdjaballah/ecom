@@ -6,7 +6,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
- 
+use Illuminate\Support\Facades\Log;
+
 class LoginController extends Controller
 {
     /**
@@ -20,8 +21,7 @@ class LoginController extends Controller
         ]);
  
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
- 
+            Log::info('session', ['user' => Auth::user()]);
             return response()->json(Auth::user());
         }
  
